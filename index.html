@@ -29,6 +29,49 @@
 <body>
 <div class='section' id='all'><div class='widget HTML' data-version='1' id='HTML1'>
 <div class='widget-content'>
+    <!-- عنوان وزر أسفل الصفحة -->
+<div style="text-align: center; margin-top: 30px;">
+  <h2 style="color: #1E90FF; margin-bottom: 15px;">Play PSP Games</h2>
+  <a href="https://www.aiappls.com" target="_blank" class="blue-button">Download PPSSPP</a>
+</div>
+
+<style>
+  .blue-button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #1E90FF;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.4);
+  }
+
+  .blue-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+  }
+
+  .blue-button:hover {
+    background-color: #0d6efd;
+    transform: scale(1.05);
+  }
+
+  .blue-button:hover::before {
+    left: 130%;
+  }
+</style>
 <!doctype html>
 
 
