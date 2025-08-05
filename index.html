@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XRpsp PPSSPP - Download PPSSPP Games & Mobile Games MOD</title>
+  <meta name="description" content="Download the latest PPSSPP and MOD mobile games for Android and iOS. Easy navigation, search, and direct download. XRpsp: Your home for mobile gaming!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://i.postimg.cc/8k0Bvx2n/bf63d212-acd6-4471-ab5d-a41c0961fc43.jpg">
+  <meta property="og:title" content="XRpsp PPSSPP - PPSSPP & MOD Games Download">
+  <meta property="og:description" content="Find and download the best PPSSPP and MOD games for your mobile. Fast, easy and safe.">
+  <link rel="icon" href="https://i.postimg.cc/8k0Bvx2n/bf63d212-acd6-4471-ab5d-a41c0961fc43.jpg">
+  <style>
+    :root {
+      --main: #1e222d;
+      --accent: #ff9000;
+      --bg: #23273a;
+      --card: #262a3b;
+      --text: #fff;
+      --text2: #bfc7d5;
+      --radius: 18px;
+      --shadow: 0 6px 24px rgba(35,39,58, 0.45);
+      --transition: 0.3s cubic-bezier(.6, -.28, .74, .05);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    header {
+      background: var(--main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 6vw 10px 6vw;
+      box-shadow: var(--shadow);
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      position: sticky; top: 0; z-index: 20;
+    }
+    .logo-wrap {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .logo-wrap img {
+      width: 46px; height: 46px; border-radius: 50%; box-shadow: 0 2px 8px #0005;
+      background: #fff;
+      object-fit: cover;
+    }
+    .logo-wrap span {
+      font-size: 1.6rem; font-weight: 700; color: var(--accent); letter-spacing: 2px;
+      text-shadow: 0 2px 8px #0008;
+    }
+    nav {
+      display: flex; gap: 16px;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: var(--text2);
+      font-size: 1.01rem;
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background var(--transition), color var(--transition);
+    }
+    nav button.active, nav button:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    main {
+      max-width: 1200px; margin: 28px auto 0 auto;
+      padding: 0 8px;
+      min-height: 40vh;
+    }
+    .search-pagination-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+    .search-bar {
+      flex: 1 1 290px;
+      position: relative;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px 40px 10px 16px;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--card);
+      color: var(--text);
+      font-size: 1.02rem;
+      box-shadow: 0 2px 8px #0002;
+      outline: none;
+      transition: box-shadow .2s;
+    }
+    .search-bar input:focus {
+      box-shadow: 0 2px 12px #0005;
+    }
+    .search-bar:after {
+      content: '🔍';
+      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      font-size: 1.16rem; color: var(--text2);
+    }
+    .pagination {
+      display: flex; gap: 4px; flex-wrap: wrap;
+      align-items: center;
+      user-select: none;
+    }
+    .pagination button {
+      background: var(--card);
+      color: var(--text2);
+      border: none;
+      border-radius: 7px;
+      padding: 6px 14px;
+      font-size: 1.01rem;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+      font-weight: 500;
+      margin: 0 1px;
+    }
+    .pagination button.active, .pagination button:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .game-grid {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 32px;
+      transition: opacity .25s;
+    }
+    @media (min-width: 0px) {
+      .game-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 900px) {
+      .game-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .game-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px #0003;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 8px 18px 8px;
+      position: relative;
+      overflow: hidden;
+      animation: popin .7s cubic-bezier(.41,1.6,.65,1.01);
+      transition: transform .18s, box-shadow .18s;
+    }
+    .game-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 4px 20px #0005;
+      z-index: 2;
+    }
+    @keyframes popin {
+      from { opacity: 0; transform: scale(.85);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .game-img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 2px 12px #0003;
+      margin-bottom: 13px;
+      background: #222;
+      border: 2px solid #2a2e41;
+      transition: box-shadow .17s;
+    }
+    /* مستطيل عمودي */
+    .game-img-ppsspp {
+      aspect-ratio: 9/16;
+      height: auto;
+      max-height: 260px;
+      min-height: 0;
+    }
+    /* صور ألعاب MOD مربعة */
+    .game-img-mod {
+      aspect-ratio: 1/1;
+      height: auto;
+      max-height: 180px;
+      min-height: 0;
+    }
+    .game-name {
+      font-size: 1.06rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 7px;
+      text-align: center;
+      min-height: 36px;
+      letter-spacing: .4px;
+    }
+    .game-desc {
+      color: var(--text2);
+      font-size: 0.97rem;
+      line-height: 1.4;
+      margin-bottom: 4px;
+      text-align: center;
+      min-height: 36px;
+    }
+    .game-year {
+      color: #ffc36c;
+      font-size: 0.96rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    .download-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      padding: 8px 22px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      box-shadow: 0 2px 10px #ff900033;
+      transition: background var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+      display: inline-block;
+      animation: pulse 1.7s infinite;
+    }
+    .download-btn:hover { background: #ffaf39; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 2px 10px #ff900033;}
+      70% { box-shadow: 0 2px 20px #ff900066;}
+    }
+    footer {
+      background: var(--main);
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      margin-top: 30px;
+      padding: 18px 6vw 8px 6vw;
+      color: var(--text2);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .footer-links button {
+      background: none;
+      border: none;
+      color: var(--text2);
+      font-size: 1.05rem;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 6px 12px;
+      transition: background var(--transition), color var(--transition);
+    }
+    .footer-links button.active, .footer-links button:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .dev-note {
+      font-size: .98rem;
+      color: #ffd890;
+      margin: 6px 0 0 0;
+      font-style: italic;
+      opacity: .92;
+    }
+    .back-btn {
+      position: fixed;
+      right: 20px; bottom: 80px;
+      z-index: 99;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify
+    }
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      background: #E1306C;
+      border-radius: 6px;
+      padding: 5px 13px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+    .instagram-link:hover, .instagram-link:focus {
+      background: #ff5eac;
+      color: #fff;
+      text-decoration: underline;
+    }
+    @media (max-width: 540px) {
+      header, footer { padding-left: 3vw; padding-right: 3vw; }
+      main { padding: 0 2px; }
+    }
+    ::-webkit-scrollbar { width: 12px; background: #23273a;}
+    ::-webkit-scrollbar-thumb { background: #262a3b; border-radius: 10px;}
+    ::-webkit-scrollbar-thumb:hover { background: #ff900055;}
+  </style>
+</head>
+<body>
+    <header>
+    <div class="logo-wrap">
+      <img src="https://i.postimg.cc/8k0Bvx2n/bf63d212-acd6-4471-ab5d-a41c0961fc43.jpg" alt="XRpsp Logo">
+      <span></span>
+    </div>
+    <nav>
+      <button id="tab-ppsspp" class="active">PPSSPP</button>
+      <button id="tab-mod">MOD</button>
+    </nav>
+    </header>
+
+  <main>
+    <div class="search-pagination-bar">
+      <div class="search-bar">
+        <input type="text" id="search" placeholder="Search games..." autocomplete="off">
+      </div>
+      <div class="pagination" id="pagination-top"></div>
+    </div>
+    <div class="game-grid" id="game-grid"></div>
+    <div class="pagination" id="pagination-bottom"></div>
+  </main>
+
+  <button class="back-btn" id="backBtn" title="Go Back" aria-label="Go Back" style="display:none;">⟵</button>
+
+  <footer>
+    <div class="footer-links">
+      <button id="footer-ppsspp" class="active">PPSSPP</button>
+      <button id="footer-mod">MOD</button>
+    </div>
+    <div id="footnote"></div>
+    <div style="margin-top: 5px; font-size: .97rem; opacity:.77;">
+      &copy; 2025 XRpsp. All rights reserved.
+    </div>
+    <div style="margin-top:7px;">
+      <a class="instagram-link" href="https://instagram.com/xrpsp_games" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle"><path fill="#fff" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5zm4.25 2.75a5.75 5.75 0 1 1 0 11.5a5.75 5.75 0 0 1 0-11.5zm0 1.5a4.25 4.25 0 1 0 0 8.5a4.25 4.25 0 0 0 0-8.5zm6.13.98a1.13 1.13 0 1 1-2.26 0a1.13 1.13 0 0 1 2.26 0z"></path></svg>
+        @xrpsp
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // ----------- Data -----------
+    const gamesData = {
+      PPSSPP: [
+        // Page 1
+        [
+          {
+            name: "God Of War - Ghost Of Sparta",
+            img: "https://i.postimg.cc/ht9VgFjP/81-IR-Kslch-L.jpg",
+            desc: "Kratos embarks on a quest to uncover his past in this epic mythological action adventure.",
+            year: 2010
+          },
+          {
+            name: "God Of War - Chains Of Olympus",
+            img: "https://i.postimg.cc/hj3dMcCM/81-Lh4-AMz-Rw-L-AC-UF1000-1000-QL80.jpg",
+            desc: "Experience Kratos's early journey serving the gods of Olympus in this action-packed prequel.",
+            year: 2008
+          },
+          {
+            name: "Crazy Taxi",
+            img: "https://i.postimg.cc/wvFVpCws/Crazy-Taxi-Fare-Wars-Coverart.png",
+            desc: "High-speed arcade driving game where you race the clock to deliver passengers.",
+            year: 2007
+          },
+          {
+            name: "Jak And Daxter",
+            img: "https://i.postimg.cc/rsPNdSXV/71si-B5o-Z-RL-AC-UF1000-1000-QL80.jpg",
+            desc: "Join Jak and his friend Daxter on a wild and humorous platforming adventure.",
+            year: 2009
+          },
+          {
+            name: "Tomb Raider",
+            img: "https://i.postimg.cc/TYKczHgp/trlepp0f.jpg",
+            desc: "Lara Croft's legendary action-adventure as she explores dangerous tombs and ruins.",
+            year: 2003
+          },
+          {
+            name: "Spider Man 2",
+            img: "https://i.postimg.cc/6QJzLL7T/spm2pp0f.jpg",
+            desc: "Swing through the city and fight crime as Spider-Man in this action adventure.",
+            year: 2004
+          },
+          {
+            name: "Tekken 6",
+            img: "https://i.postimg.cc/tg3krZPk/81r-Fj-Lj6hf-S.jpg",
+            desc: "The legendary fighting game returns with new characters and dramatic storylines.",
+            year: 2009
+          },
+          {
+            name: "James Cameron's Avatar",
+            img: "https://i.postimg.cc/g2wBK2Nt/81nag-K0iw-ZL.jpg",
+            desc: "Step into the world of Pandora in this action-packed game inspired by the hit movie.",
+            year: 2009
+          },
+          {
+            name: "Resistance - Retribution",
+            img: "https://i.postimg.cc/Wz0stcHX/Resistance-Retribution-PSPNACover.jpg",
+            desc: "Fight the Chimera invasion in this third-person shooter set in post-war Europe.",
+            year: 2009
+          },
+          {
+            name: "Manhunt 2",
+            img: "https://i.postimg.cc/BnSJZycB/mah2pp0f.jpg",
+            desc: "A dark and intense stealth action game about surviving in a world of violence.",
+            year: 2007
+          },
+          {
+            name: "FIFA Street 2",
+            img: "https://i.postimg.cc/P5STC4Ss/fifa-street-2-psp.jpg",
+            desc: "Take street soccer to the next level with tricks, skills, and style.",
+            year: 2006
+          },
+          {
+            name: "Medal Of Honor - Heroes",
+            img: "https://i.postimg.cc/bvMPTvXm/Medalofhonorsheroes.jpg",
+            desc: "Experience World War II heroics in this action-packed first-person shooter.",
+            year: 2006
+          },
+          {
+            name: "MX vs. ATV - On The Edge",
+            img: "https://i.postimg.cc/MHJ8CrpR/mxaupp0f.jpg",
+            desc: "Off-road racing at its best with MX bikes and ATVs.",
+            year: 2006
+          },
+          {
+            name: "Toy Story 3",
+            img: "https://i.postimg.cc/kgqg6D98/Toy-Story-3-Sony-PSP-c01bc2c5-939f-4e66-9711-02a99427d282-20b4f5a4311a97a64c925b36d50aa55b.jpg",
+            desc: "Join Woody, Buzz, and friends for an adventure based on the popular Pixar film.",
+            year: 2010
+          },
+          {
+            name: "Ghost Rider",
+            img: "https://i.postimg.cc/j2fSN7L6/71-S22yf0-RL.jpg",
+            desc: "Ride through hell as the Ghost Rider in this supernatural action game.",
+            year: 2007
+          },
+          {
+            name: "Midnight Club 3",
+            img: "https://i.postimg.cc/DzC0Kh9G/m3depp0f.jpg",
+            desc: "High-octane street racing with fully customizable cars and bikes.",
+            year: 2005
+          },
+          {
+            name: "Dante's Inferno",
+            img: "https://i.postimg.cc/yxDcwDX5/71g-Urje-CXe-L-UF1000-1000-QL80.jpg",
+            desc: "Battle through the nine circles of Hell in this epic action adventure.",
+            year: 2010
+          },
+          {
+            name: "Grand Theft Auto – Vice City Stories",
+            img: "https://i.postimg.cc/RhG2GYsT/Grand-Theft-Auto-Vice-City-Stories.webp",
+            desc: "Experience the criminal underworld of Vice City in this open-world classic.",
+            year: 2006
+          },
+          {
+            name: "Need for Speed – ProStreet",
+            img: "https://i.postimg.cc/G9wT7M4H/Need-for-Speed-Pro-Street-psp-poster.webp",
+            desc: "Compete in high-speed races with the world's hottest cars.",
+            year: 2007
+          },
+          {
+            name: "Crisis Core – Final Fantasy VII",
+            img: "https://i.postimg.cc/C1njcncr/Crisis-Core-Final-Fantasy-VII.jpg",
+            desc: "Discover the prequel story to the legendary Final Fantasy VII.",
+            year: 2007
+          }
+        ],
+        // Page 2 (نماذج مختارة للأوصاف والسنة)
+        [
+          {
+            name: "Metal Gear Solid – Peace Walker",
+            img: "https://i.postimg.cc/9MsskTCD/Metal-Gear-Solid-Peace-Walker.webp",
+            desc: "Lead Snake and his mercenary unit in a Cold War espionage adventure.",
+            year: 2010
+          },
+          {
+            name: "Naruto Shippuden – Ultimate Ninja Heroes 3",
+            img: "https://i.postimg.cc/N0gJCDXJ/Naruto-Shippuden-Ultimate-Ninja-Heroes-3.webp",
+            desc: "Battle with over 50 Naruto characters in this exciting ninja fighting game.",
+            year: 2010
+          },
+          {
+            name: "Gran Turismo",
+            img: "https://i.postimg.cc/SxzkNytF/Gran-Turismo-psp-poster.webp",
+            desc: "Realistic racing simulation with hundreds of cars and tracks.",
+            year: 2009
+          },
+          {
+            name: "Assassin’s Creed – Bloodlines",
+            img: "https://i.postimg.cc/mkRt7PJH/Assassins-Creed-Bloodlines.jpg",
+            desc: "Continue Altair's journey as an Assassin in this portable adventure.",
+            year: 2009
+          },
+          {
+            name: "e-Football 2024",
+            img: "https://i.postimg.cc/qqXQGCRV/e-Football-2024.webp",
+            desc: "The latest football simulation experience by Konami.",
+            year: 2023
+          },
+          {
+            name: "Call of Duty – Roads to Victory",
+            img: "https://i.postimg.cc/02MqsD0J/Call-of-Duty.jpg",
+            desc: "WWII first-person shooter with classic intense action.",
+            year: 2007
+          },
+          {
+            name: "Ben 10 – Protector of Earth",
+            img: "https://i.postimg.cc/B6S09zmq/Ben-10-Protector-of-Earth-psp-poster.webp",
+            desc: "Transform into different aliens to save the world as Ben 10.",
+            year: 2007
+          },
+          {
+            name: "Dragon Ball Z – Tenkaichi Tag Team",
+            img: "https://i.postimg.cc/0ySxpD6q/Dragon-Ball-Z-Tenkaichi-Tag-Team.jpg",
+            desc: "Tag team battles featuring the iconic Dragon Ball Z fighters.",
+            year: 2010
+          },
+          {
+            name: "Mortal Kombat – Unchained",
+            img: "https://i.postimg.cc/65yBpDtq/Mortal-Kombat-Unchained.jpg",
+            desc: "Classic brutal fighting game with new modes and fatalities.",
+            year: 2006
+          },
+          {
+            name: "Fight Night Round 3",
+            img: "https://i.postimg.cc/zf5mKMZn/Fight-Night-Round-3-psp-poster.webp",
+            desc: "Realistic boxing action with legendary champions.",
+            year: 2006
+          },
+          {
+            name: "SoulCalibur – Broken Destiny",
+            img: "https://i.postimg.cc/N0bnTjxc/Soul-Calibur-Broken-Destiny.jpg",
+            desc: "Weapon-based fighting game with a diverse cast of characters.",
+            year: 2009
+          },
+          {
+            name: "Crash of the Titans",
+            img: "https://i.postimg.cc/V62PrNYN/Crash-of-the-Titans-psp-poster.webp",
+            desc: "Crash Bandicoot returns to fight new enemies and control mutant creatures.",
+            year: 2007
+          },
+          {
+            name: "Grand Theft Auto – Liberty City Stories",
+            img: "https://i.postimg.cc/L8mKZwMj/Grand-Theft-Auto-Liberty-City-Stories.webp",
+            desc: "Return to Liberty City in a crime-filled open world adventure.",
+            year: 2005
+          },
+          {
+            name: "Daxter",
+            img: "https://i.postimg.cc/5NQ94ZSg/Daxter-psp-poster.jpg",
+            desc: "Join Daxter in his solo comedic adventure to rescue Jak.",
+            year: 2006
+          },
+          {
+            name: "Silent Hill Origins",
+            img: "https://i.postimg.cc/52c46nPV/Silent-Hill-Origins-psp-poster.png",
+            desc: "A chilling prequel to the original Silent Hill horror game.",
+            year: 2007
+          },
+          {
+            name: "Naruto Shippuden – Ultimate Ninja Impact",
+            img: "https://i.postimg.cc/FsCPZBMM/Naruto-Shippuden-Ultimate-Ninja-Impact.jpg",
+            desc: "High-speed ninja battles and an immersive Naruto storyline.",
+            year: 2011
+          },
+          {
+            name: "Crash – Mind Over Mutant",
+            img: "https://i.postimg.cc/SQXyyBys/Crash-Mind-Over-Mutant-psp-poster.webp",
+            desc: "Crash Bandicoot faces new threats and wacky adventures.",
+            year: 2008
+          },
+          {
+            name: "Pro Evolution Soccer 2012",
+            img: "https://i.postimg.cc/pL0ss1gN/Pro-Evolution-Soccer-2012-PSP.jpg",
+            desc: "Realistic soccer simulation with improved AI and gameplay.",
+            year: 2011
+          },
+          {
+            name: "Dragon Ball Z – Shin Budokai",
+            img: "https://i.postimg.cc/d1CntQDv/Dragon-Ball-Z-Shin-Budokai.jpg",
+            desc: "Fast-paced Dragon Ball Z fighting action on the go.",
+            year: 2006
+          },
+          {
+            name: "Marvel – Ultimate Alliance",
+            img: "https://i.postimg.cc/WbYZCLb7/Marvel-Ultimate-Alliance-psp-poster.jpg",
+            desc: "Assemble your team of Marvel superheroes to save the world.",
+            year: 2006
+          }
+        ],
+        // Page 3 (نموذج مع أوصاف)
+        [
+          {
+            name: "Crash of the Titans",
+            img: "https://i.postimg.cc/V62PrNYN/Crash-of-the-Titans-psp-poster.webp",
+            desc: "Crash Bandicoot returns to fight new enemies and control mutant creatures.",
+            year: 2007
+          },
+          {
+            name: "Prince of Persia – The Forgotten Sands",
+            img: "https://i.postimg.cc/KYBg1179/Prince-of-Persia-The-Forgotten-Sands-psp-poster.jpg",
+            desc: "Action platformer featuring the Prince's quest through ancient Persia.",
+            year: 2010
+          },
+          {
+            name: "Cars",
+            img: "https://i.postimg.cc/0NBHyHfG/Cars-psp-poster.jpg",
+            desc: "Join Lightning McQueen and friends in this racing adventure.",
+            year: 2006
+          },
+          {
+            name: "The Warriors",
+            img: "https://i.postimg.cc/d3MH8kgL/The-Warriors-psp-poster.webp",
+            desc: "Fight your way through New York City as a member of the Warriors gang.",
+            year: 2005
+          },
+          {
+            name: "Tomb Raider – Anniversary",
+            img: "https://i.postimg.cc/FRrwYL5m/Tomb-Raider-Anniversary-psp-poster.jpg",
+            desc: "Remake of the original classic adventure with Lara Croft.",
+            year: 2007
+          },
+          {
+            name: "Warrios Orochi 2",
+            img: "https://i.postimg.cc/Gt9NQnm5/warriors-orochi-2-usa-en-fr-v1-02-playstation-portable-1485292969.jpg",
+            desc: "Hack and slash action with historical Japanese and Chinese warriors.",
+            year: 2008
+          },
+          {
+            name: "Harry Potter and the Order of the Phoenix",
+            img: "https://i.postimg.cc/28bMLYJq/Harry-Potter-and-the-Order-of-the-Phoenix-psp-poster.jpg",
+            desc: "Experience Harry's fifth year at Hogwarts and battle the Ministry.",
+            year: 2007
+          },
+          {
+            name: "Ben 10 – Ultimate Alien – Cosmic Destruction",
+            img: "https://i.postimg.cc/Dw1N5g7n/Ben-10-Ultimate-Alien-Cosmic-Destruction.webp",
+            desc: "Ben Tennyson uses the Ultimatrix to save the world from destruction.",
+            year: 2010
+          },
+          {
+            name: "Burnout Dominator",
+            img: "https://i.postimg.cc/mgV50r15/Burnout-Dominator-psp-poster.jpg",
+            desc: "Arcade racing game focused on speed, stunts, and crashes.",
+            year: 2007
+          },
+          {
+            name: "Transformers – The Game",
+            img: "https://i.postimg.cc/hvPgRYPL/Transformers-The-Game-psp-poster.webp",
+            desc: "Fight as Autobots or Decepticons in the battle for Earth.",
+            year: 2007
+          },
+          {
+            name: "Prince of Persia – Revelations",
+            img: "https://i.postimg.cc/yxQK1Tkw/Prince-of-Persia-Revelations-psp-poster.jpg",
+            desc: "The Prince returns in this action platformer full of danger.",
+            year: 2005
+          },
+          {
+            name: "Tom Clancy’s Splinter Cell – Essentials",
+            img: "https://i.postimg.cc/tgHKHcBs/Tom-Clancys-Splinter-Cell-Essentials-psp-poster.webp",
+            desc: "Stealth action with Sam Fisher uncovering his own past.",
+            year: 2006
+          },
+          {
+            name: "SOCOM – U.S. Navy SEALs Fireteam Bravo 3",
+            img: "https://i.postimg.cc/Rh9h6GCh/SOCOM-U-S-Navy-SEALs-Fireteam-Bravo-3-psp-poster.jpg",
+            desc: "Tactical shooter focused on special operations missions.",
+            year: 2010
+          },
+          {
+            name: "The Godfather – Mob Wars",
+            img: "https://i.postimg.cc/rFZyMq4K/The-Godfather-Mob-Wars-psp-poster.webp",
+            desc: "Rise through the criminal underworld in this mafia action game.",
+            year: 2006
+          },
+          {
+            name: "Gods Eater Burst",
+            img: "https://i.postimg.cc/d3B18dDB/Gods-Eater-Burst.webp",
+            desc: "Hunt giant monsters in a post-apocalyptic world.",
+            year: 2011
+          },
+          {
+            name: "Syphon Filter – Logan’s Shadow",
+            img: "https://i.postimg.cc/52H4tD5p/Syphon-Filter-Logans-Shadow-psp-poster.webp",
+            desc: "Stealth action shooter featuring secret agent Gabe Logan.",
+            year: 2007
+          },
+          {
+            name: "Monster Hunter Freedom 2",
+            img: "https://i.postimg.cc/rwv8RgQT/Monster-Hunter-Freedom-2-psp-poster-psp.jpg",
+            desc: "Hunt, capture, and defeat monsters in an open world.",
+            year: 2007
+          },
+          {
+            name: "X-Men Origins – Wolverine",
+            img: "https://i.postimg.cc/zGdhmmzj/X-Men-Origins-Wolverine-psp-poster.jpg",
+            desc: "Action game based on Wolverine's story from the X-Men universe.",
+            year: 2009
+          },
+          {
+            name: "WALL-E",
+            img: "https://i.postimg.cc/FK7LNP1Q/WALL-E-psp-poster.webp",
+            desc: "Join WALL-E and EVE on their journey to save Earth.",
+            year: 2008
+          },
+          {
+            name: "ATV Offroad Fury Pro",
+            img: "https://i.postimg.cc/fRgV2xCq/ATV-Offroad-Fury-Pro-psp-poster.webp",
+            desc: "Off-road racing with ATVs across rugged terrain.",
+            year: 2006
+          }
+        ],
+        // Page 4 (يمكنك إضافة أوصاف وسنة لباقي الألعاب بنفس النمط)
+        [
+          {
+            name: "Soul Calibur Broken Destiny",
+            img: "https://i.postimg.cc/N0bnTjxc/Soul-Calibur-Broken-Destiny.jpg",
+            desc: "Weapon-based fighting game with legendary warriors.",
+            year: 2009
+          },
+          {
+            name: "Justice League Heroes",
+            img: "https://i.postimg.cc/RCfwWbdS/Justice-League-Heroes-psp-poster.webp",
+            desc: "Team up as DC superheroes to save the world.",
+            year: 2006
+          },
+          {
+            name: "Scarface – Money. Power. Respect.",
+            img: "https://i.postimg.cc/DyPsgJRR/Scarface-Money-Power-Respect-psp-poster.jpg",
+            desc: "Control Miami's underworld as Tony Montana in this strategy game.",
+            year: 2006
+          },
+          {
+            name: "Ratatouille",
+            img: "https://i.postimg.cc/kGr8jxJP/ratatouille-psp-poster.webp",
+            desc: "Play as Remy the rat chef in Paris.",
+            year: 2007
+          },
+          {
+            name: "Tenchu – Shadow Assassins",
+            img: "https://i.postimg.cc/ZYg6nzpD/Tenchu-Shadow-Assassins-psp-poster.webp",
+            desc: "Stealth action adventure as a ninja assassin.",
+            year: 2009
+          },
+          {
+            name: "Transformers – Revenge of the Fallen",
+            img: "https://i.postimg.cc/fy0tmkmq/Transformers-Revenge-of-the-Fallen-psp-poster.jpg",
+            desc: "Battle as Autobots or Decepticons in this action game.",
+            year: 2009
+          },
+          {
+            name: "LEGO Harry Potter – Years 1-4",
+            img: "https://i.postimg.cc/QVGBbsq8/LEGO-Harry-Potter-Years-1-4-psp-poster.webp",
+            desc: "Relive Harry Potter's first four years at Hogwarts in LEGO style.",
+            year: 2010
+          },
+          {
+            name: "Pirates of the Caribbean – At World’s End",
+            img: "https://i.postimg.cc/h4Jppr06/Pirates-of-the-Caribbean-At-Worlds-End-psp-poster.webp",
+            desc: "Sail the seas as Jack Sparrow in this swashbuckling adventure.",
+            year: 2007
+          },
+          {
+            name: "Obscure The Aftermath",
+            img: "https://i.postimg.cc/dVhXdYxk/Obscure-The-Aftermath-psp-poster.jpg",
+            desc: "Survive supernatural horrors in this chilling sequel.",
+            year: 2007
+          },
+          {
+            name: "X-Men Legends II – Rise of Apocalypse",
+            img: "https://i.postimg.cc/N0TzJxYQ/X-Men-Legends-II-Rise-of-Apocalypse-psp-poster.jpg",
+            desc: "Unite X-Men and Brotherhood to stop Apocalypse.",
+            year: 2005
+          },
+          {
+            name: "F1 2009",
+            img: "https://i.postimg.cc/1zZHt1hZ/F1-2009-PSP.webp",
+            desc: "Realistic Formula 1 racing simulation.",
+            year: 2009
+          },
+          {
+            name: "Ben10 – Alien Force",
+            img: "https://i.postimg.cc/63WfrVpj/Alien-Force-psp-poster.webp",
+            desc: "Transform and battle as Ben 10 in his teenage years.",
+            year: 2008
+          },
+          {
+            name: "UEFA Champions League 2006-2007",
+            img: "https://i.postimg.cc/9QLSwfbj/UEFA-Champions-League-2006-2007.jpg",
+            desc: "Official UEFA Champions League football game.",
+            year: 2007
+          },
+          {
+            name: "300 – March to Glory",
+            img: "https://i.postimg.cc/hGhYLqZQ/300-March-to-Glory-psp-poster.webp",
+            desc: "Lead the Spartans against the Persian army.",
+            year: 2007
+          },
+          {
+            name: "Marvel Nemesis – Rise of the Imperfects",
+            img: "https://i.postimg.cc/pXsbzkV7/Marvel-Nemesis-Rise-of-the-Imperfects-psp-poster.jpg",
+            desc: "Marvel heroes face off against a new threat.",
+            year: 2005
+          },
+          {
+            name: "Iron Man",
+            img: "https://i.postimg.cc/05CL1ZSQ/Iron-Man-psp-poster.webp",
+            desc: "Battle as Iron Man against powerful enemies.",
+            year: 2008
+          },
+          {
+            name: "Harry Potter and the Goblet of Fire",
+            img: "https://i.postimg.cc/7Ysdf6mr/Harry-Potter-and-the-Goblet-of-Fire-psp-poster.jpg",
+            desc: "Relive Harry's fourth year at Hogwarts and the Triwizard Tournament.",
+            year: 2005
+          },
+          {
+            name: "Lord of Arcana",
+            img: "https://i.postimg.cc/G2W63SQ8/Lord-of-Arcana.jpg",
+            desc: "Action RPG hunting monsters in a fantasy world.",
+            year: 2010
+          },
+          {
+            name: "SOCOM – U.S. Navy SEALs – Fireteam Bravo 2",
+            img: "https://i.postimg.cc/Wz0Cd6W9/SOCOM-U.webp",
+            desc: "Lead a team of Navy SEALs in tactical missions.",
+            year: 2006
+          },
+          {
+            name: "Gun Showdown",
+            img: "https://i.postimg.cc/fTh16py1/Gun-Showdown-psp-poster.webp",
+            desc: "Wild West action and adventure game.",
+            year: 2006
+          }
+        ],
+        // Page 5 (ملاحظة التطوير)
+        []
+      ],
+      MOD: [
+        [
+          {
+            name: "Gta san andreas (mod)",
+            img: "https://i.postimg.cc/TPJVGjpL/unnamed-5.png",
+            desc: "Open-world action game set in San Andreas, here as a mobile mod version.",
+            year: 2004
+          },
+          {
+            name: "Gta vice city (mod)",
+            img: "https://i.postimg.cc/6pRVbxKh/unnamed-6.png",
+            desc: "Classic 80s Miami open-world action, now modded for mobile.",
+            year: 2002
+          },
+          {
+            name: "Bully",
+            img: "https://i.postimg.cc/Bn1NW1TH/unnamed-8.png",
+            desc: "Schoolyard open-world adventure from Rockstar, now modded.",
+            year: 2006
+          },
+          {
+            name: "Gta iii (mod)",
+            img: "https://i.postimg.cc/J76QGQKj/unnamed-7.png",
+            desc: "The classic Liberty City open-world crime game, modded for mobile.",
+            year: 2001
+          },
+          {
+            name: "Minecraft",
+            img: "https://i.postimg.cc/tJ0n5dp0/unnamed-3.png",
+            desc: "The classic sandbox building and survival game, with mods.",
+            year: 2011
+          },
+          {
+            name: "Roblox",
+            img: "https://i.postimg.cc/gJx34khh/unnamed.webp",
+            desc: "Online platform for user-created games, with mobile mods.",
+            year: 2006
+          },
+          {
+            name: "Baseball 9 (mod)",
+            img: "https://i.postimg.cc/8zPDtNM2/baseball9.png",
+            desc: "Arcade-style baseball game with modded features.",
+            year: 2018
+          },
+          {
+            name: "Subway surfers (mod)",
+            img: "https://i.postimg.cc/8zkJtzQC/unnamed-5.png",
+            desc: "Endless runner game with modded enhancements.",
+            year: 2012
+          },
+          {
+            name: "Grid autosport",
+            img: "https://i.postimg.cc/NfCPvcWq/unnamed-4.png",
+            desc: "Realistic racing simulation with console-quality graphics.",
+            year: 2014
+          },
+          {
+            name: "Monopoly go!",
+            img: "https://i.postimg.cc/pV8FdSJP/unnamed-4.png",
+            desc: "Modern mobile version of the classic Monopoly game.",
+            year: 2023
+          },
+          {
+            name: "Hungry shark (mod)",
+            img: "https://i.postimg.cc/kgbNY68Z/unnamed-9.png",
+            desc: "Eat, grow, and survive as a shark in this modded arcade adventure.",
+            year: 2010
+          },
+          {
+            name: "Payback 2 (mod)",
+            img: "https://i.postimg.cc/FRmxLrY6/unnamed-10.png",
+            desc: "Action-packed sandbox game with modded content.",
+            year: 2014
+          },
+          {
+            name: "Into the dead 2 (mod)",
+            img: "https://i.postimg.cc/x1JgrFr6/unnamed-11.png",
+            desc: "Survive the zombie apocalypse in this modded runner-shooter.",
+            year: 2017
+          },
+          {
+            name: "Asphalt 8 (mod)",
+            img: "https://i.postimg.cc/5tzPzKnX/unnamed-12.png",
+            desc: "High-speed arcade racing, now with mod features.",
+            year: 2013
+          },
+          {
+            name: "Stardew valley",
+            img: "https://i.postimg.cc/85dn2rVt/images.jpg",
+            desc: "Farming and life simulation with pixel-art charm.",
+            year: 2016
+          },
+          {
+            name: "Pokemon go",
+            img: "https://i.postimg.cc/L6tLxWJx/unnamed-2.png",
+            desc: "Augmented reality adventure to catch Pokémon in the real world.",
+            year: 2016
+          },
+          {
+            name: "Royal match",
+            img: "https://i.postimg.cc/7Y8SM4ZC/unnamed-1.png",
+            desc: "Match-3 puzzle game with royal themes and modded extras.",
+            year: 2021
+          },
+          {
+            name: "Bloons td 6",
+            img: "https://i.postimg.cc/2ywMZLcV/unnamed-3.png",
+            desc: "Strategic tower defense game, now with modded features.",
+            year: 2018
+          },
+          {
+            name: "Dead cells",
+            img: "https://i.postimg.cc/RVSjzGhf/unnamed-2.png",
+            desc: "Roguelike action platformer with modded content.",
+            year: 2018
+          },
+          {
+            name: "Alto's odyssey",
+            img: "https://i.postimg.cc/65MF6R4P/unnamed-1.png",
+            desc: "Beautiful endless runner through scenic landscapes.",
+            year: 2018
+          },
+          {
+            name: "Geometry dash",
+            img: "https://i.postimg.cc/HLyNthvG/unnamed.png",
+            desc: "Fast-paced rhythm platformer, now modded.",
+            year: 2013
+          },
+          {
+            name: "Coin master",
+            img: "https://i.postimg.cc/6pBRghRt/unnamed.jpg",
+            desc: "Casual slot and village building game with modded features.",
+            year: 2015
+          },
+          {
+            name: "Soul knight",
+            img: "https://i.postimg.cc/XYZ1VPbZ/unnamed.jpg",
+            desc: "Dungeon crawler shooter with modded content.",
+            year: 2017
+          },
+          {
+            name: "Candy crush saga",
+            img: "https://i.postimg.cc/NFTmqJpf/unnamed.png",
+            desc: "The legendary match-3 puzzle game, now modded.",
+            year: 2012
+          }
+        ],
+        // Page 7 (ملاحظة التطوير)
+        []
+      ]
+    };
+
+    // ----------- State -----------
+    let currentTab = 'PPSSPP';
+    let currentPage = 1;
+    let searchQuery = '';
+    const downloadUrl = "https://mediafire.store/";
+
+    function getPageRange(tab) {
+      return tab === 'PPSSPP' ? [1,5] : [6,7];
+    }
+    function getGamesForView() {
+      let idx = (currentTab === "PPSSPP") ? currentPage-1 : currentPage-6;
+      let games = gamesData[currentTab][idx] || [];
+      if (!searchQuery.trim()) return games;
+      const q = searchQuery.trim().toLowerCase();
+      return games.filter(g => g.name.toLowerCase().includes(q));
+    }
+    function renderGames() {
+      const gameGrid = document.getElementById('game-grid');
+      let games = getGamesForView();
+      gameGrid.innerHTML = '';
+      if (
+        (currentTab === "PPSSPP" && currentPage === 5) ||
+        (currentTab === "MOD" && currentPage === 7)
+      ) {
+        let note = document.createElement('div');
+        note.className = "dev-note";
+        note.textContent = currentTab === "PPSSPP"
+          ? "This site is still under development. More PPSSPP games will be available soon!"
+          : "This site is still under development. More MOD games will be available soon!";
+        gameGrid.appendChild(note);
+        return;
+      }
+      if (games.length === 0) {
+        let note = document.createElement('div');
+        note.className = "dev-note";
+        note.textContent = "No games found.";
+        gameGrid.appendChild(note);
+        return;
+      }
+      for (let g of games) {
+        let c = document.createElement('div');
+        c.className = "game-card";
+        let imgClass = currentTab === "PPSSPP" ? "game-img game-img-ppsspp" : "game-img game-img-mod";
+        c.innerHTML = `
+          <img class="${imgClass}" src="${g.img}" alt="${g.name}">
+          <div class="game-name">${g.name}</div>
+          <div class="game-desc">${g.desc ? g.desc : ''}</div>
+          <div class="game-year">${g.year ? 'Release: ' + g.year : ''}</div>
+          <a class="download-btn" href="${downloadUrl}" target="_blank" rel="noopener">Download</a>
+        `;
+        gameGrid.appendChild(c);
+      }
+    }
+    function renderPagination() {
+      const [min, max] = getPageRange(currentTab);
+      const pagDivs = [document.getElementById('pagination-top'), document.getElementById('pagination-bottom')];
+      pagDivs.forEach(pagDiv => {
+        pagDiv.innerHTML = '';
+        for (let i = min; i <= max; i++) {
+          let b = document.createElement('button');
+          b.textContent = i;
+          if (i === currentPage) b.className = 'active';
+          b.onclick = () => {
+            navigateToPage(i);
+            window.scrollTo({top: 0, behavior: 'smooth'});
+          };
+          pagDiv.appendChild(b);
+        }
+      });
+    }
+    function renderFooterLinks() {
+      document.getElementById('footer-ppsspp').classList.toggle('active', currentTab === 'PPSSPP');
+      document.getElementById('footer-mod').classList.toggle('active', currentTab === 'MOD');
+    }
+    function renderHeaderTabs() {
+      document.getElementById('tab-ppsspp').classList.toggle('active', currentTab === 'PPSSPP');
+      document.getElementById('tab-mod').classList.toggle('active', currentTab === 'MOD');
+    }
+    function renderFootnote() {
+      let fn = document.getElementById('footnote');
+      if (currentTab === "PPSSPP") {
+        fn.innerHTML = "Browse the best PPSSPP games for Android, download and play now!";
+      } else {
+        fn.innerHTML = "Discover top MOD and modded games for Android, all in one place!";
+      }
+    }
+    function renderAll() {
+      renderHeaderTabs();
+      renderFooterLinks();
+      renderPagination();
+      renderGames();
+      renderFootnote();
+      document.getElementById('backBtn').style.display =
+        (historyStack.length > 1) ? 'flex' : 'none';
+    }
+    let historyStack = [];
+    function pushHistory(tab, page, query) {
+      if (historyStack.length &&
+          historyStack[historyStack.length-1].tab === tab &&
+          historyStack[historyStack.length-1].page === page &&
+          historyStack[historyStack.length-1].query === query) return;
+      historyStack.push({tab, page, query});
+      if (historyStack.length > 20) historyStack.shift();
+    }
+    function popHistory() {
+      if (historyStack.length <= 1) return;
+      historyStack.pop();
+      let s = historyStack[historyStack.length-1];
+      currentTab = s.tab;
+      currentPage = s.page;
+      searchQuery = s.query;
+      document.getElementById('search').value = searchQuery;
+      renderAll();
+    }
+    function navigateToTab(tab) {
+      if (currentTab === tab) return;
+      currentTab = tab;
+      currentPage = tab === 'PPSSPP' ? 1 : 6;
+      searchQuery = '';
+      document.getElementById('search').value = '';
+      pushHistory(currentTab, currentPage, searchQuery);
+      renderAll();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    function navigateToPage(page) {
+      if (currentPage === page) return;
+      currentPage = page;
+      pushHistory(currentTab, currentPage, searchQuery);
+      renderAll();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    function handleSearchInput(val) {
+      searchQuery = val;
+      currentPage = currentTab === "PPSSPP" ? 1 : 6;
+      pushHistory(currentTab, currentPage, searchQuery);
+      renderAll();
+    }
+    document.getElementById('tab-ppsspp').onclick = () => navigateToTab('PPSSPP');
+    document.getElementById('tab-mod').onclick = () => navigateToTab('MOD');
+    document.getElementById('footer-ppsspp').onclick = () => navigateToTab('PPSSPP');
+    document.getElementById('footer-mod').onclick = () => navigateToTab('MOD');
+    document.getElementById('search').addEventListener('input', e => {
+      handleSearchInput(e.target.value);
+    });
+    document.getElementById('backBtn').onclick = popHistory;
+    window.addEventListener("popstate", function(e){
+      popHistory();
+    });
+    pushHistory(currentTab, currentPage, searchQuery);
+    renderAll();
+    window.onbeforeunload = function() {
+      if (historyStack.length > 1) {
+        popHistory();
+        return false;
+      }
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.game-img').forEach(img => {
+        img.setAttribute('loading', 'lazy');
+      });
+    });
+  </script>
+</body>
+</html>
