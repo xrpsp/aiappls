@@ -3,186 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Game Currency Generator</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Free Game Currency Giveaway</title>
 <style>
-:root {
-  --primary:#ff3d4f;
-  --bg:#0f0f0f;
-  --card:#1a1a1a;
-  --text:#fff;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;}
-header{text-align:center;padding:40px 20px 20px;}
-header h1{font-size:2.2rem;background:linear-gradient(45deg,#ff3d4f,#ff7a4f);
-  -webkit-background-clip:text;color:transparent;}
-header p{opacity:.8;margin-top:8px;}
-.container{max-width:1200px;margin:30px auto;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;padding:0 20px;}
-.card{background:var(--card);border-radius:16px;overflow:hidden;
-  cursor:pointer;transition:transform .3s;box-shadow:0 0 15px rgba(0,0,0,.4);}
-.card:hover{transform:translateY(-5px);}
-.card img{width:100%;height:170px;object-fit:cover;}
-.card h3{text-align:center;padding:15px;font-weight:600;font-size:1.1rem;}
-/* Modal */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);
-  display:none;justify-content:center;align-items:center;padding:20px;z-index:99;}
-.modal.active{display:flex;}
-.modal-content{position:relative;background:rgba(26,26,26,.95);
-  border-radius:20px;padding:30px;max-width:420px;width:100%;
-  text-align:center;overflow:hidden;}
-.modal-content img.bg{position:absolute;top:0;left:0;width:100%;
-  height:100%;object-fit:cover;opacity:.45;filter:blur(6px);z-index:-1;}
-.close{position:absolute;top:12px;right:18px;font-size:26px;color:#fff;cursor:pointer;}
-.modal-content h2{font-size:1.6rem;margin-bottom:15px;}
-input[type="text"]{width:90%;padding:12px;border:none;border-radius:10px;
-  margin:15px 0;font-size:1rem;}
-.btn{background:var(--primary);color:#fff;border:none;padding:12px 25px;
-  border-radius:10px;font-size:1rem;cursor:pointer;margin:8px 5px;
-  transition:background .3s;}
-.btn:hover{background:#ff505f;}
-.step{margin-top:15px;}
-.hidden{display:none;}
-.progress{width:80%;height:12px;background:#333;border-radius:6px;
-  margin:18px auto;overflow:hidden;}
-.progress-bar{width:0;height:100%;background:linear-gradient(90deg,#ff3d4f,#ff7a4f);
-  transition:width 1s;}
-.fake-captcha{margin:15px 0;font-size:1.2rem;font-weight:700;letter-spacing:3px;
-  background:#222;padding:10px;border-radius:10px;display:inline-block;}
-.status-msg{margin-top:12px;font-size:1rem;opacity:.9;}
-.blink{animation:blink 1s infinite;}
-@keyframes blink{50%{opacity:0.3;}}
+  body {
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    text-align: center;
+    padding: 30px 20px;
+    background: #1c1c1c;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    color: #00ffcc;
+    margin-bottom: 10px;
+  }
+  header p {
+    color: #ccc;
+    font-size: 1.1rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  .card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .card:hover { transform: translateY(-6px); }
+  .card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+  }
+  .card h3 {
+    padding: 15px;
+    text-align: center;
+    background: #222;
+    margin: 0;
+    color: #00ffcc;
+    font-size: 1.1rem;
+  }
+  /* Popup */
+  .popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .popup-content {
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 350px;
+    width: 90%;
+  }
+  .popup-content h2 {
+    color: #00ffcc;
+    margin-bottom: 15px;
+  }
+  select {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+  }
+  .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #00ffcc;
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  .close {
+    display: block;
+    margin-top: 15px;
+    color: #ccc;
+    cursor: pointer;
+    text-decoration: underline;
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Free Game Currency Generator</h1>
-  <p>Select your favorite game and generate unlimited resources!</p>
+  <h1>Get Free Game Currency</h1>
+  <p>Select your favorite game and start claiming your free rewards!</p>
 </header>
 
-<div class="container">
-  <div class="card" data-title="PUBG MOBILE UC" data-img="https://i.postimg.cc/52pxH7gL/hq720.jpg" data-currency="UC">
-    <img src="https://i.postimg.cc/52pxH7gL/hq720.jpg"><h3>PUBG MOBILE UC</h3>
+<div class="cards">
+  <div class="card" onclick="window.open('https://www.aiappls.com/freefire.html','_blank')">
+    <img src="https://i.postimg.cc/tgMn6Ck3/Free-Fire-Free-Diamond.jpg" alt="Free Fire">
+    <h3>Free Fire Diamonds</h3>
   </div>
-  <div class="card" data-title="FREE FIRE Diamonds" data-img="https://i.postimg.cc/tgMn6Ck3/Free-Fire-Free-Diamond.jpg" data-currency="Diamonds">
-    <img src="https://i.postimg.cc/tgMn6Ck3/Free-Fire-Free-Diamond.jpg"><h3>FREE FIRE Diamonds</h3>
+
+  <div class="card" onclick="window.open('https://www.aiappls.com/robux.html','_blank')">
+    <img src="https://i.postimg.cc/tTpwhpgg/maxresdefault-2.jpg" alt="Roblox">
+    <h3>Roblox Robux</h3>
   </div>
-  <div class="card" data-title="Roblox Robux" data-img="https://i.postimg.cc/tTpwhpgg/maxresdefault-2.jpg" data-currency="Robux">
-    <img src="https://i.postimg.cc/tTpwhpgg/maxresdefault-2.jpg"><h3>Roblox Robux</h3>
+
+  <div class="card" onclick="openPopup('PUBG MOBILE UC')">
+    <img src="https://i.postimg.cc/52pxH7gL/hq720.jpg" alt="PUBG">
+    <h3>PUBG MOBILE UC</h3>
   </div>
-  <div class="card" data-title="Minecraft Minecoins" data-img="https://i.postimg.cc/3xb2XBJ0/348cc34bbfc0d6045539143a95d659102e7d4e92248edc01d12c942530d1234b.jpg" data-currency="Minecoins">
-    <img src="https://i.postimg.cc/3xb2XBJ0/348cc34bbfc0d6045539143a95d659102e7d4e92248edc01d12c942530d1234b.jpg"><h3>Minecraft Minecoins</h3>
+
+  <div class="card" onclick="openPopup('Minecraft MINECOINS')">
+    <img src="https://i.postimg.cc/3xb2XBJ0/348cc34bbfc0d6045539143a95d659102e7d4e92248edc01d12c942530d1234b.jpg" alt="Minecraft">
+    <h3>Minecraft MINECOINS</h3>
   </div>
-  <div class="card" data-title="Fortnite V-Bucks" data-img="https://i.postimg.cc/rmhTsK9T/FNECO-32-00-Vbuck-Store-Art-Update-1000-EGS-2560x1440-2560x1440-b882abaa9eaf0b7e22a68b846f756092.jpg" data-currency="V-Bucks">
-    <img src="https://i.postimg.cc/rmhTsK9T/FNECO-32-00-Vbuck-Store-Art-Update-1000-EGS-2560x1440-2560x1440-b882abaa9eaf0b7e22a68b846f756092.jpg"><h3>Fortnite V-Bucks</h3>
+
+  <div class="card" onclick="openPopup('Fortnite V-Bucks')">
+    <img src="https://i.postimg.cc/rmhTsK9T/FNECO-32-00-Vbuck-Store-Art-Update-1000-EGS-2560x1440-2560x1440-b882abaa9eaf0b7e22a68b846f756092.jpg" alt="Fortnite">
+    <h3>Fortnite V-Bucks</h3>
   </div>
-  <div class="card" data-title="Call Of Duty CP" data-img="https://i.postimg.cc/gjT6VcGF/maxresdefault-1.jpg" data-currency="CP">
-    <img src="https://i.postimg.cc/gjT6VcGF/maxresdefault-1.jpg"><h3>Call Of Duty CP</h3>
+
+  <div class="card" onclick="openPopup('Call Of Duty CP')">
+    <img src="https://i.postimg.cc/gjT6VcGF/maxresdefault-1.jpg" alt="Call of Duty">
+    <h3>Call Of Duty CP</h3>
   </div>
-  <div class="card" data-title="FIFA Points" data-img="https://i.postimg.cc/d0f1NHzr/maxresdefault-3.jpg" data-currency="Points">
-    <img src="https://i.postimg.cc/d0f1NHzr/maxresdefault-3.jpg"><h3>FIFA Points</h3>
+
+  <div class="card" onclick="openPopup('FIFA Points')">
+    <img src="https://i.postimg.cc/d0f1NHzr/maxresdefault-3.jpg" alt="FIFA">
+    <h3>FIFA Points</h3>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" id="close">&times;</span>
-    <img class="bg" id="modalImg">
-    <h2 id="modalTitle"></h2>
-
-    <input type="text" id="username" placeholder="Enter Username / Player ID">
-    <button class="btn" id="searchBtn">Search User</button>
-
-    <div class="step hidden" id="searchStatus">
-      <p class="status-msg blink">🔎 Searching for user profile...</p>
-    </div>
-
-    <div class="step hidden" id="amountStep">
-      <p>User found ✅<br>Select the amount you want to top-up:</p>
-      <button class="btn amount" data-val="1000">1000</button>
-      <button class="btn amount" data-val="2000">2000</button>
-      <button class="btn amount" data-val="5000">5000</button>
-    </div>
-
-    <div class="step hidden" id="genStep">
-      <p class="status-msg blink">⚡ Generating resources...</p>
-      <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-    </div>
-
-    <div class="step hidden" id="verifyStep">
-      <p>Final Step – Human Verification</p>
-      <div class="fake-captcha" id="captchaWord"></div>
-      <p class="status-msg" id="rewardMsg"></p>
-      <a class="btn" href="https://pagelocked.org/cl/i/w6qnjv" target="_blank">Verify & Claim</a>
-    </div>
+<!-- Popup -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2 id="gameTitle">Game</h2>
+    <p>Select the amount of currency you want:</p>
+    <select id="amount">
+      <option>100</option>
+      <option>500</option>
+      <option>1000</option>
+      <option>2000</option>
+    </select>
+    <a href="https://pagelocked.org/cl/i/w6qnjv" target="_blank" class="btn">Verify & Claim</a>
+    <span class="close" onclick="closePopup()">Cancel</span>
   </div>
 </div>
 
 <script>
-const modal=document.getElementById('modal');
-const modalImg=document.getElementById('modalImg');
-const modalTitle=document.getElementById('modalTitle');
-const username=document.getElementById('username');
-const searchBtn=document.getElementById('searchBtn');
-const searchStatus=document.getElementById('searchStatus');
-const amountStep=document.getElementById('amountStep');
-const genStep=document.getElementById('genStep');
-const progressBar=document.getElementById('progressBar');
-const verifyStep=document.getElementById('verifyStep');
-const captchaWord=document.getElementById('captchaWord');
-const rewardMsg=document.getElementById('rewardMsg');
+  const popup = document.getElementById('popup');
+  const gameTitle = document.getElementById('gameTitle');
 
-const words=["H7KD9","X4LP2","G9TR1","M8QW5","B6ZA3"];
-let selectedAmount=0;
-let selectedCurrency="";
+  function openPopup(game) {
+    gameTitle.textContent = game;
+    popup.style.display = 'flex';
+  }
 
-document.querySelectorAll('.card').forEach(card=>{
-  card.addEventListener('click',()=>{
-    modal.classList.add('active');
-    modalImg.src=card.dataset.img;
-    modalTitle.textContent=card.dataset.title;
-    selectedCurrency=card.dataset.currency;
-    username.value='';
-    [searchStatus,amountStep,genStep,verifyStep].forEach(s=>s.classList.add('hidden'));
-  });
-});
-
-document.getElementById('close').onclick=()=>modal.classList.remove('active');
-
-searchBtn.onclick=()=>{
-  if(username.value.trim()!==''){
-    searchStatus.classList.remove('hidden');
-    setTimeout(()=>{
-      searchStatus.classList.add('hidden');
-      amountStep.classList.remove('hidden');
-    },2000);
-  } else alert('Please enter a valid Username / Player ID');
-};
-
-document.querySelectorAll('.amount').forEach(btn=>{
-  btn.onclick=()=>{
-    selectedAmount=btn.dataset.val;
-    amountStep.classList.add('hidden');
-    genStep.classList.remove('hidden');
-    progressBar.style.width='0';
-    let p=0;
-    const timer=setInterval(()=>{
-      p+=20;
-      progressBar.style.width=p+'%';
-      if(p>=100){
-        clearInterval(timer);
-        genStep.classList.add('hidden');
-        captchaWord.textContent=words[Math.floor(Math.random()*words.length)];
-        rewardMsg.textContent=`Once verified, your ${selectedAmount} ${selectedCurrency} will be delivered to the username you provided.`;
-        verifyStep.classList.remove('hidden');
-      }
-    },800);
-  };
-});
+  function closePopup() {
+    popup.style.display = 'none';
+  }
 </script>
+
 </body>
 </html>
