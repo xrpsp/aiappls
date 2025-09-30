@@ -1,217 +1,232 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Game Currency Giveaway</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #0f0f0f;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-  }
-  header {
-    text-align: center;
-    padding: 30px 20px;
-    background: #1c1c1c;
-  }
-  header h1 {
-    font-size: 2.2rem;
-    color: #00ffcc;
-    margin-bottom: 10px;
-  }
-  header p {
-    color: #ccc;
-    font-size: 1.1rem;
-  }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 20px;
-    padding: 40px;
-    max-width: 1200px;
-    margin: auto;
-  }
-  .card {
-    background: #1e1e1e;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    transition: transform 0.3s;
-    cursor: pointer;
-  }
-  .card:hover { transform: translateY(-6px); }
-  .card img {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-  }
-  .card h3 {
-    padding: 15px;
-    text-align: center;
-    background: #222;
-    margin: 0;
-    color: #00ffcc;
-    font-size: 1.1rem;
-  }
-  /* Popup */
-  .popup {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  .popup-content {
-    background: #1e1e1e;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 350px;
-    width: 90%;
-  }
-  .popup-content h2 {
-    color: #00ffcc;
-    margin-bottom: 15px;
-  }
-  select {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 6px;
-    background: #333;
-    color: #fff;
-  }
-  .btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background: #00ffcc;
-    color: #000;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-  }
-  .close {
-    display: block;
-    margin-top: 15px;
-    color: #ccc;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game Currency — Claim & Verify</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ff6b6b;--muted:#9aa4b2;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef6;background:linear-gradient(180deg,#071022 0%, #071a2a 100%);min-height:100vh}
+    .container{max-width:1100px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    header h1{font-size:20px;margin:0}
+    header p{margin:0;color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:14px;box-shadow:0 6px 20px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(2,6,23,0.8)}
+    .thumb{height:140px;border-radius:10px;overflow:hidden;background:#09121a;display:flex;align-items:center;justify-content:center}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+    .meta .title{font-weight:600}
+    .meta .sub{color:var(--muted);font-size:13px}
+    .btn{display:inline-block;padding:10px 12px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600}/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:linear-gradient(0deg,rgba(2,6,23,0.7),rgba(2,6,23,0.7));display:none;align-items:center;justify-content:center;padding:24px;z-index:60}
+.modal{background:linear-gradient(180deg,#071826,#04212c);width:100%;max-width:520px;border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(2,6,23,0.8)}
+.modal h2{margin:0 0 8px 0}
+.field{margin-bottom:12px}
+.input, select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:var(--glass);color:#eaf3ff}
+.radio-row{display:flex;gap:8px}
+.radio-btn{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);text-align:center;cursor:pointer}
+.radio-btn.active{outline:2px solid rgba(255,107,107,0.14);box-shadow:0 8px 20px rgba(255,107,107,0.06)}
+.actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#cfe6ff;padding:9px 12px;border-radius:8px;cursor:pointer}
+/* footer ad */
+footer{margin-top:26px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);display:flex;align-items:center;justify-content:space-between;gap:16px}
+footer .legal{color:var(--muted);font-size:13px}
+/* Responsive tweaks */
+@media(max-width:520px){.modal{padding:16px}}
 
-<!-- إضافة التاغ المطلوب -->
-<script type="text/javascript">
-  atOptions = {
-    'key' : 'f4825251d5d923668c7a3d0a4348e2c7',
-    'format' : 'iframe',
-    'height' : 60,
-    'width' : 468,
-    'params' : {}
-  };
-</script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '8ce39c827490448432ef5c89ae792fdf',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/8ce39c827490448432ef5c89ae792fdf/invoke.js"></script>
-
+  </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Game Currency — Claim Now</h1>
+        <p>Choose your game, enter username / ID, pick an amount and click <strong>Verify & Claim</strong>.</p>
+      </div>
+      <div class="logo">🔸</div>
+    </header><main>
+  <div class="grid" id="cards">
+    <!-- Card: Free Fire (direct link) -->
+    <a class="card" id="card-freefire" href="https://www.aiappls.com/freefire.html" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.postimg.cc/tgMn6Ck3/Free-Fire-Free-Diamond.jpg" alt="Free Fire Diamonds"/></div>
+      <div class="meta"><div>
+        <div class="title">Free Fire — Diamonds</div>
+        <div class="sub">Direct link · Instant</div>
+      </div>
+      <div><span class="btn">Open</span></div></div>
+    </a>
 
-<header>
-  <h1>Get Free Game Currency</h1>
-  <p>Select your favorite game and start claiming your free rewards!</p>
-</header>
+    <!-- Card: Roblox (direct link) -->
+    <a class="card" id="card-roblox" href="https://www.aiappls.com/robux.html" target="_blank" rel="noopener">
+      <div class="thumb"><img src="https://i.postimg.cc/tTpwhpgg/maxresdefault-2.jpg" alt="Roblox Robux"/></div>
+      <div class="meta"><div>
+        <div class="title">Roblox — Robux</div>
+        <div class="sub">Direct link · Instant</div>
+      </div>
+      <div><span class="btn">Open</span></div></div>
+    </a>
 
-<div class="cards">
-  <div class="card" onclick="window.open('https://www.aiappls.com/freefire.html','_blank')">
-    <img src="https://i.postimg.cc/tgMn6Ck3/Free-Fire-Free-Diamond.jpg" alt="Free Fire">
-    <h3>Free Fire Diamonds</h3>
+    <!-- PUBG MOBILE UC (opens modal) -->
+    <div class="card" data-game="PUBG MOBILE" data-img="https://i.postimg.cc/52pxH7gL/hq720.jpg">
+      <div class="thumb"><img src="https://i.postimg.cc/52pxH7gL/hq720.jpg" alt="PUBG UC"/></div>
+      <div class="meta"><div>
+        <div class="title">PUBG MOBILE — UC</div>
+        <div class="sub">Enter ID to search</div>
+      </div>
+      <div><span class="btn">Select</span></div></div>
+    </div>
+
+    <!-- Fortnite V-Bucks -->
+    <div class="card" data-game="Fortnite" data-img="https://i.postimg.cc/rmhTsK9T/FNECO-32-00-Vbuck-Store-Art-Update-1000-EGS-2560x1440-2560x1440-b882abaa9eaf0b7e22a68b846f756092.jpg">
+      <div class="thumb"><img src="https://i.postimg.cc/rmhTsK9T/FNECO-32-00-Vbuck-Store-Art-Update-1000-EGS-2560x1440-2560x1440-b882abaa9eaf0b7e22a68b846f756092.jpg" alt="Fortnite V-Bucks"/></div>
+      <div class="meta"><div>
+        <div class="title">Fortnite — V-Bucks</div>
+        <div class="sub">Enter ID to search</div>
+      </div>
+      <div><span class="btn">Select</span></div></div>
+    </div>
+
+    <!-- Call Of Duty CP -->
+    <div class="card" data-game="Call Of Duty" data-img="https://i.postimg.cc/gjT6VcGF/maxresdefault-1.jpg">
+      <div class="thumb"><img src="https://i.postimg.cc/gjT6VcGF/maxresdefault-1.jpg" alt="Call of Duty CP"/></div>
+      <div class="meta"><div>
+        <div class="title">Call of Duty — CP</div>
+        <div class="sub">Enter ID to search</div>
+      </div>
+      <div><span class="btn">Select</span></div></div>
+    </div>
+
   </div>
 
-  <div class="card" onclick="window.open('https://www.aiappls.com/robux.html','_blank')">
-    <img src="https://i.postimg.cc/tTpwhpgg/maxresdefault-2.jpg" alt="Roblox">
-    <h3>Roblox Robux</h3>
-  </div>
-
-  <div class="card" onclick="openPopup('PUBG MOBILE UC')">
-    <img src="https://i.postimg.cc/52pxH7gL/hq720.jpg" alt="PUBG">
-    <h3>PUBG MOBILE UC</h3>
-  </div>
-
-  <div class="card" onclick="openPopup('Minecraft MINECOINS')">
-    <img src="https://i.postimg.cc/3xb2XBJ0/348cc34bbfc0d6045539143a95d659102e7d4e92248edc01d12c942530d1234b.jpg" alt="Minecraft">
-    <h3>Minecraft MINECOINS</h3>
-  </div>
-
-  <div class="card" onclick="openPopup('Fortnite V-Bucks')">
-    <img src="https://i.postimg.cc/rmhTsK9T/FNECO-32-00-Vbuck-Store-Art-Update-1000-EGS-2560x1440-2560x1440-b882abaa9eaf0b7e22a68b846f756092.jpg" alt="Fortnite">
-    <h3>Fortnite V-Bucks</h3>
-  </div>
-
-  <div class="card" onclick="openPopup('Call Of Duty CP')">
-    <img src="https://i.postimg.cc/gjT6VcGF/maxresdefault-1.jpg" alt="Call of Duty">
-    <h3>Call Of Duty CP</h3>
-  </div>
-
-  <div class="card" onclick="openPopup('FIFA Points')">
-    <img src="https://i.postimg.cc/d0f1NHzr/maxresdefault-3.jpg" alt="FIFA">
-    <h3>FIFA Points</h3>
-  </div>
-</div>
-
-<!-- Popup -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <h2 id="gameTitle">Game</h2>
-    <p>Select the amount of currency you want:</p>
-    <select id="amount">
-      <option>100</option>
-      <option>500</option>
-      <option>1000</option>
-      <option>2000</option>
-    </select>
-    <a href="https://pagelocked.org/cl/i/w6qnjv" target="_blank" class="btn">Verify & Claim</a>
-    <span class="close" onclick="closePopup()">Cancel</span>
-  </div>
-</div>
-
-<script>
-  const popup = document.getElementById('popup');
-  const gameTitle = document.getElementById('gameTitle');
-
-  function openPopup(game) {
-    gameTitle.textContent = game;
-    popup.style.display = 'flex';
-  }
-
-  function closePopup() {
-    popup.style.display = 'none';
-  }
-</script>
-
-<!-- Ad Script -->
-<script type="text/javascript">
+  <footer>
+    <div class="legal">Choose a game and follow the steps. Your privacy matters — this is a demo UI.</div>
+    <div id="ad-slot">
+      <!-- AD SCRIPT INSERTED HERE -->
+      <script type="text/javascript">
 	atOptions = {
-		'key' : 'f4825251d5d923668c7a3d0a4348e2c7',
+		'key' : 'dab09ed32887cf981208a18f7d011c2a',
 		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
+		'height' : 50,
+		'width' : 320,
 		'params' : {}
 	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/f4825251d5d923668c7a3d0a4348e2c7/invoke.js"></script>
+	</script>
+	<script type="text/javascript" src="//www.highperformanceformat.com/dab09ed32887cf981208a18f7d011c2a/invoke.js"></script>
+    </div>
+  </footer>
+</main>
 
-</body>
+  </div>  <!-- Modal markup -->  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h2 id="modalTitle">Claim Currency</h2>
+      <p id="modalGame" style="color:var(--muted);margin-top:0;margin-bottom:12px">Enter your username or ID to search</p><div class="field">
+    <label for="userInput" style="display:block;margin-bottom:6px;color:var(--muted);font-size:13px">Username or ID</label>
+    <input id="userInput" class="input" placeholder="Enter username or ID" />
+  </div>
+
+  <div class="field">
+    <button id="searchBtn" class="ghost" style="width:100%;">Search</button>
+  </div>
+
+  <div id="searchResult" style="display:none">
+    <div style="margin-bottom:8px;color:var(--muted);font-size:13px">Found user:</div>
+    <div id="foundUser" style="padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:8px">—</div>
+
+    <div style="margin-bottom:8px;color:var(--muted);font-size:13px">Choose amount</div>
+    <div class="radio-row" id="amountRow">
+      <div class="radio-btn" data-amount="999">999</div>
+      <div class="radio-btn" data-amount="9999">9,999</div>
+      <div class="radio-btn" data-amount="19999">19,999</div>
+    </div>
+
+    <div class="actions">
+      <button id="closeModal" class="ghost">Cancel</button>
+      <button id="claimBtn" class="btn">Verify & Claim</button>
+    </div>
+  </div>
+
+  <div id="searching" style="display:none;margin-top:8px;color:var(--muted)">Searching…</div>
+</div>
+
+  </div>  <script>
+    // Basic interactions
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalGame = document.getElementById('modalGame');
+    const cards = document.querySelectorAll('.card');
+    const userInput = document.getElementById('userInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const searching = document.getElementById('searching');
+    const searchResult = document.getElementById('searchResult');
+    const foundUser = document.getElementById('foundUser');
+    const amountRow = document.getElementById('amountRow');
+    const claimBtn = document.getElementById('claimBtn');
+    const closeModal = document.getElementById('closeModal');
+
+    let selectedGame = null;
+    let selectedAmount = null;
+    let selectedUser = null;
+
+    // Open modal when clicking non-anchor cards
+    cards.forEach(card => {
+      if (card.tagName.toLowerCase() === 'a') return; // anchors already link out
+      card.addEventListener('click', ()=>{
+        selectedGame = card.getAttribute('data-game') || 'Game';
+        const img = card.getAttribute('data-img') || '';
+        modalGame.textContent = selectedGame + ' — Enter username or ID to search';
+        userInput.value = '';
+        selectedAmount = null; selectedUser = null;
+        // reset UI
+        searchResult.style.display = 'none'; searching.style.display = 'none';
+        document.querySelectorAll('.radio-btn').forEach(el=>el.classList.remove('active'));
+        modalBackdrop.style.display = 'flex';
+      })
+    })
+
+    // Close modal
+    closeModal.addEventListener('click', ()=> modalBackdrop.style.display = 'none');
+    modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) modalBackdrop.style.display='none' });
+
+    // Simulated search
+    searchBtn.addEventListener('click', ()=>{
+      const val = userInput.value.trim();
+      if(!val){ alert('Please enter a username or ID'); return }
+      searching.style.display = 'block'; searchResult.style.display='none';
+      // simulate async search (UI only)
+      setTimeout(()=>{
+        searching.style.display = 'none';
+        // fake found user result (echo back)
+        selectedUser = val;
+        foundUser.textContent = selectedGame + ' — ' + selectedUser;
+        searchResult.style.display = 'block';
+      }, 900);
+    })
+
+    // Choose amount
+    amountRow.addEventListener('click', e=>{
+      const btn = e.target.closest('.radio-btn'); if(!btn) return;
+      document.querySelectorAll('.radio-btn').forEach(el=>el.classList.remove('active'));
+      btn.classList.add('active');
+      selectedAmount = btn.getAttribute('data-amount');
+    })
+
+    // Claim -> redirect to provided pagelocked URL
+    claimBtn.addEventListener('click', ()=>{
+      if(!selectedUser){ alert('Please search and select a user first.'); return }
+      if(!selectedAmount){ alert('Please choose an amount.'); return }
+      // Optionally: you can append query params for tracking
+      const target = new URL('https://pagelocked.org/cl/v/w6qnjv');
+      target.searchParams.set('game', selectedGame);
+      target.searchParams.set('user', selectedUser);
+      target.searchParams.set('amount', selectedAmount);
+      // redirect
+      window.location.href = target.toString();
+    })
+
+    // Accessibility: close on Esc
+    document.addEventListener('keydown', e=>{ if(e.key === 'Escape') modalBackdrop.style.display='none' })
+  </script></body>
+</html>
