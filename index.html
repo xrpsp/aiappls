@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Script 1 -->
+
+  <!-- Script 2 -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>XRPSP Mobile Games - Roblox Mod, Minecraft, Block Blast, GTA San Andreas, Fortnite Mobile - GTA 5 Mobile, Assetto Corsa, Static Shift Racing</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/156YN4gf/67fad16e593306dfeb6b5556393fe0c2.jpg">
+
+  <meta name="description" content="Play the top trending mobile games of 2025: GTA 5 Mobile, Fortnite Mobile, Assetto Corsa Mobile, Static Shift Racing, Baseball 9 MOD, AI-enhanced gaming tools, trending mobile mods, and the latest racing simulators. Discover the newest mobile gaming trends and high-performance racing experiences.">
+
+  <meta name="keywords" content="
+GTA 5 Mobile,
+GTA 5 Mobile Mod,
+GTA 5 Android 2025,
+Fortnite Mobile 2025,
+Fortnite Mobile Update,
+Assetto Corsa Mobile,
+Static Shift Racing,
+Mobile Racing Games 2025,
+Trending Mobile Games,
+Best Racing Simulator App,
+AI Gaming Tools 2025,
+AI Tools for Gamers,
+Mobile Games Trends 2025,
+Open World Racing Mobile,
+Drift Racing 2025,
+Realistic Driving Games,
+XRPSP Gaming,
+XRPSP Mobile Games,
+GTA 5 APK 2025,
+Fortnite APK Android,
+Racing Games Download,
+High Graphics Mobile Games,
+New Mobile Mods 2025,
+Mobile Games AI Enhancements,
+Self Driving Game Mobile,
+Open World Games Android
+  ">
+
+  <meta property="og:image" content="https://i.postimg.cc/156YN4gf/67fad16e593306dfeb6b5556393fe0c2.jpg">
+  <meta property="og:title" content="Top Mobile Racing Games">
+  <meta property="og:description" content="Play GTA 5 Mobile, Assetto Corsa Mobile, and Static Shift Racing – the best mobile racing experiences!">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px 20px;
+    }
+
+    /* ----------- LOGO ----------- */
+    .logo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 25px;
+      display: block;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* ----------- SEARCH BAR ----------- */
+    .search-wrapper {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      margin-bottom: 35px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 12px 18px;
+      border: 2px solid #f5c542;
+      border-radius: 30px;
+      background: #111;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 0 10px rgba(245, 197, 66, 0.3);
+      transition: 0.3s;
+    }
+
+    .search-bar:focus {
+      box-shadow: 0 0 15px rgba(245, 197, 66, 0.6);
+      border-color: #fff;
+    }
+
+    .suggestions-box {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      background: #1a1a1a;
+      border: 2px solid #f5c542;
+      border-radius: 15px;
+      list-style: none;
+      max-height: 220px;
+      overflow-y: auto;
+      padding: 0;
+      margin: 5px 0 0 0;
+      display: none;
+      z-index: 10;
+    }
+
+    .suggestions-box li {
+      padding: 12px;
+      cursor: pointer;
+      color: #fff;
+      transition: 0.2s;
+    }
+
+    .suggestions-box li:hover {
+      background: #f5c542;
+      color: #000;
+    }
+
+    /* ----------- GAMES GRID ----------- */
+    .games-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .game-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #f5c542;
+    }
+
+    .game-card h2 {
+      font-size: 1.2rem;
+      margin: 10px 0;
+      color: #fff;
+      padding: 0 10px;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .game-card a {
+      display: inline-block;
+      background: #f5c542;
+      color: #000;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 10px auto 15px auto;
+      transition: background 0.3s ease;
+    }
+
+    .game-card a:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+    }
+
+    /* ----------- Responsive ----------- */
+    @media (max-width: 768px) {
+      .games-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+      }
+
+      .search-bar {
+        font-size: 0.9rem;
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 10px;
+      }
+      .game-card h2 {
+        font-size: 1rem;
+      }
+      .game-card a {
+        padding: 6px 15px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Logo -->
+  <img src="https://i.postimg.cc/Hxf5Xwjp/retouch-2025112422343307.png" alt="Game Logo" class="logo">
+
+  <!-- Search Bar -->
+  <div class="search-wrapper">
+    <input type="text" id="gameSearch" placeholder="Search for a game..." class="search-bar">
+    <ul id="suggestions" class="suggestions-box"></ul>
+  </div>
+
+  <!-- Games Grid -->
+  <div class="games-container">
+    <!-- Game Cards -->
+    <div class="game-card">
+      <img src="https://i.postimg.cc/FHPqjt8x/grand-theft-auto-v-on-pc-is-finally-getting-the-enhanced-v0-cmqh2167ebke1.jpg" alt="GTA 5 Mobile">
+      <h2>GTA 5 Mobile</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/1thbd6N3/28ab48fcd5d5b19b03c126d2b6aef4b8.jpg" alt="Roblox Menu MOD">
+      <h2>Roblox Menu MOD</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/HLQ6VNjh/2x1-NSwitch-Minecraft.jpg" alt="Minecraft MOD">
+      <h2>Minecraft MOD</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/C1B45XqB/XVM58ddafea-20be-11ea-88a9-d2e707b938cd.jpg" alt="Subway Surfer MOD">
+      <h2>Subway Surfer MOD</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/m2yfFWyJ/baseball-9-pc-full-version.jpg" alt="Baseball 9 MOD">
+      <h2>Baseball 9 MOD</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/DZxdG3Fz/aff2e4e39888d9b701b58819affe40b8-screen.png" alt="Block Blast MOD">
+      <h2>Block Blast MOD</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/9MjtcTJ1/fortnite-shot-bramjstore.jpg" alt="Fortnite Mobile">
+      <h2>Fortnite Mobile</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/DZ43WWCV/IMG-20251125-145851.jpg" alt="GTA SA MOD">
+      <h2>GTA SA MOD</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/QMwyyQXy/NMc-Aucy-ANMn-YMNkz6V5vk9f5YXty2m-Cz.jpg" alt="Assetto Corsa Mobile">
+      <h2>Assetto Corsa Mobile</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="https://i.postimg.cc/5yMkxfQL/unnamed.png" alt="Static Shift Racing">
+      <h2>Static Shift Racing</h2>
+      <a href="https://installchecker.com/cl/v/7j7n9v" target="_blank">Play Now</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Mobile Racing Hub. All Rights Reserved.
+  </footer>
+
+  <!-- Smart Search Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById("gameSearch");
+      const suggestionsBox = document.getElementById("suggestions");
+      const cards = document.querySelectorAll(".game-card");
+
+      function updateSuggestions() {
+        let filter = searchInput.value.toLowerCase();
+        suggestionsBox.innerHTML = "";
+
+        if (!filter) {
+          suggestionsBox.style.display = "none";
+          cards.forEach(card => card.style.display = "block");
+          return;
+        }
+
+        let matches = [];
+        cards.forEach(card => {
+          let title = card.querySelector("h2").innerText;
+          if (title.toLowerCase().includes(filter)) {
+            matches.push(title);
+          }
+        });
+
+        if (matches.length > 0) {
+          suggestionsBox.style.display = "block";
+          matches.forEach(match => {
+            let item = document.createElement("li");
+            item.innerText = match;
+            item.addEventListener("click", () => {
+              searchInput.value = match;
+              suggestionsBox.style.display = "none";
+              cards.forEach(card => {
+                card.style.display = card.querySelector("h2").innerText.toLowerCase().includes(match.toLowerCase()) ? "block" : "none";
+              });
+              const target = [...cards].find(c => c.querySelector("h2").innerText.toLowerCase() === match.toLowerCase());
+              if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
+            });
+            suggestionsBox.appendChild(item);
+          });
+        } else {
+          suggestionsBox.style.display = "none";
+          cards.forEach(card => card.style.display = "none");
+        }
+      }
+
+      searchInput.addEventListener("keyup", updateSuggestions);
+    });
+  </script>
+
+</body>
+</html>
